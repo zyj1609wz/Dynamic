@@ -24,11 +24,11 @@ dependencies {
 }
 
 task getJar(type: Copy) {
-    delete 'build/libs/mysdk.jar'
+    delete 'build/libs/dynamic.jar'
     from('build/intermediates/bundles/release/')
     into('build/libs/')
     include('classes.jar')
-    rename('classes.jar', 'mysdk.jar')
+    rename('classes.jar', 'dynamic.jar')
 }
 
 //终端输入 gradlew :DynamicLib:getJar 生成jar
