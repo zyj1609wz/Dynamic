@@ -134,9 +134,11 @@ DexClassLoader(String dexPath, String optimizedDirectory, String librarySearchPa
 #### 更高级的插件开发可以参考已经成熟的插件框架。
  - [360手机助手插件框架DroidPlugin](https://github.com/DroidPluginTeam/DroidPlugin)
  - [携程插件框架DynamicAPK](https://github.com/CtripMobile/DynamicAPK)
+ - [Small](https://github.com/wequick/Small)
 
 ## 参考资料
 
 - [Android动态加载Dex机制解析](http://blog.csdn.net/wy353208214/article/details/50859422)
 - [DL动态加载框架技术文档](http://blog.csdn.net/singwhatiwanna/article/details/40283117)
 - [Android博客周刊专题之＃插件化开发＃](http://www.androidblog.cn/index.php/Index/detail/id/16#)
+- [Android动态加载技术 简单易懂的介绍方式](https://segmentfault.com/a/1190000004062866)
