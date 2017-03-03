@@ -40,6 +40,13 @@ getJar.dependsOn(build)
 
   最后在这个目录生成的`dynamic_dex.jar`  就是我们需要的dex文件。
 
+## Dex包里面有什么？
+
+我们就以`dynamic_dex.jar` dex包为例，把它解压，可以看到两个文件
+![](/png/dex_unzip.png)
+
+
+
 
 
 

@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import dalvik.system.DexClassLoader;
+
 /**
  * Created by ${zhaoyanjun} on 2017/3/2.
  */
@@ -58,5 +60,24 @@ public class FileUtils {
         if (!cache.exists())
             cache.mkdirs();
         return cache;
+    }
+
+    public static DexClassLoader getDexClassLoader( Context context ){
+        File cacheFile = FileUtils.getCacheDir(context.getApplicationContext());
+        String internalPath = cacheFile.getAbsolutePath() + File.separator + "dynamic_dex.jar";
+        File desFile = new File(internalPath);
+        try {
+            if (!desFile.exists()) {
+                desFile.createNewFile();
+                FileUtils.copyFiles( context , "dynamic_dex.jar", desFile);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //下面开始加载dex class
+        DexClassLoader dexClassLoader = new DexClassLoader(internalPath, cacheFile.getAbsolutePath(), null,context.getClassLoader() );
+
+        return dexClassLoader ;
     }
 }
