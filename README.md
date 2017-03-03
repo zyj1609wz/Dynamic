@@ -105,13 +105,26 @@ public class SetFragment extends Fragment implements FragmentI {
 
 ```
 
+## 相关知识详解
+
+- ClassLoader
+在`java`中，有个概念叫做`"类加载器"`（`ClassLoader`），它的作用就是动态的装载`Class`文件。标准的`java sdk`中有一个`ClassLoader`类，借助这个类可以装载想要的`Class`文件，每个`ClassLoader`对象在初始化时必须制定`Class`文件的路径。
+
+- DexClassLoader
+`dex`文件是一种经过`android`打包工具优化后的`Class`文件，因此加载这样特殊的`Class`文件就需要特殊的类装载器，所以android中提供了`DexClassLoader`类。这个类加载器用来从`.jar`和`.apk`类型的文件内部加载`classes.dex`文件。通过这种方式可以用来执行非安装的程序代码，作为程序的一部分进行运行。
+
+DexClassLoader 构造函数
+
+DexClassLoader(String dexPath, String optimizedDirectory, String librarySearchPath, ClassLoader parent)
+
+首先我们在
+
 ## 延伸
 动态加载本身是插件开发里面的知识，本项目只是动态加载`DEX`文件。动态加载也是可以加载`APK`文件的，这里不做说明，感兴趣的自己可以搜索资料学习一下。
 
 #### 更高级的插件开发可以参考已经成熟的插件框架。
  - [360手机助手插件框架DroidPlugin](https://github.com/DroidPluginTeam/DroidPlugin)
  - [携程插件框架DynamicAPK](https://github.com/CtripMobile/DynamicAPK)
-
 
 ## 参考资料
 
