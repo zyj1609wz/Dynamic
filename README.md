@@ -55,7 +55,7 @@ getJar.dependsOn(build)
 
 ## 动态加载需要注意的事项
 
-#### 善于使用接口编程
+#### 1、善于使用接口编程
 由于我们最终动态加载的是`Dex`文件,但是`Dex`包中的类都不能直接调用。那么怎么调用我们需要的类呢？通常有两种方法，如下
 - 用Java反射 ----- [Java 反射 使用总结](http://www.cnblogs.com/zhaoyanjun/p/6074887.html)
 - 面向接口编程 ---- 本工程就是使用的这个方法
@@ -64,7 +64,7 @@ getJar.dependsOn(build)
 不过这里需要注意的是：`DynamicLib`中的接口，需要在`app`工程里面重新写一份，并且包名要相同，都是`com.dyncmic.lib` 。
 
 
-### 使用Android中的反射初始化控件
+### 2、使用Android中的反射初始化控件
 操作方法详见：[Android 反射-换一种方式编程](http://www.cnblogs.com/zhaoyanjun/p/6484767.html)
 具体到本工程的代码如下：
 ```
