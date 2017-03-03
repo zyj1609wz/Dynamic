@@ -105,6 +105,13 @@ public class SetFragment extends Fragment implements FragmentI {
 
 ```
 
+## 延伸
+动态加载本身是插件开发里面的知识，本项目只是动态加载`DEX`文件。动态加载也是可以加载`APK`文件的，这里不做说明，感兴趣的自己可以搜索资料学习一下。
+
+#### 更高级的插件开发可以参考已经成熟的插件框架。
+ - [360手机助手插件框架DroidPlugin](https://github.com/DroidPluginTeam/DroidPlugin)
+ - [携程插件框架DynamicAPK](https://github.com/CtripMobile/DynamicAPK)
+
 
 ## 参考资料
 
