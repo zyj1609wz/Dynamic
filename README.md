@@ -1,4 +1,11 @@
 # Dynamic Android 动态加载实践
+
+## 这个工程可以实现那些功能
+
+- 动态加载普通的类
+
+- 动态加载Fragment
+
 ## Android 动态加载步骤
 
 1、把需要动态加载的类打成`Jar`包。比如：`dynamic.jar`
@@ -46,8 +53,56 @@ getJar.dependsOn(build)
 ![](/png/dex_unzip.png)
 
 
+## 动态加载需要注意的事项
+
+#### 善于使用接口编程
+由于我们最终动态加载的是`Dex`文件,但是`Dex`包中的类都不能直接调用。那么怎么调用我们需要的类呢？通常有两种方法，如下
+- 用Java反射 ----- [Java 反射 使用总结](http://www.cnblogs.com/zhaoyanjun/p/6074887.html)
+- 面向接口编程 ---- 本工程就是使用的这个方法
+
+可以看到在例子中，我们用了两个接口`Dynamic`,`FragmentI`。`DynamicImpl`实现`Dynamic`接口；`SetFragment`实现`FragmentI`接口。
+不过这里需要注意的是：`DynamicLib`中的接口，需要在`app`工程里面重新写一份，并且包名要相同，都是`com.dyncmic.lib` 。
 
 
+### 使用Android中的反射初始化控件
+操作方法详见：[Android 反射-换一种方式编程](http://www.cnblogs.com/zhaoyanjun/p/6484767.html)
+具体到本工程的代码如下：
+```
+package com.dynamic.lib;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * Created by ${zhaoyanjun} on 2017/3/3.
+ */
+
+public class SetFragment extends Fragment implements FragmentI {
+
+    @Override
+    public Fragment getFragment() {
+        return new SetFragment() ;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //通过反射获取
+        int layoutID = getId( getContext() , "layout" , "fragment_main") ;
+        View view = inflater.inflate( layoutID , container , false ) ;
+        return view ;
+    }
+
+    public static int getId(Context context , String className , String name ){
+        return context.getResources().getIdentifier( name , className , context.getPackageName() ) ;
+    }
+}
+
+```
 
 
 ## 参考资料

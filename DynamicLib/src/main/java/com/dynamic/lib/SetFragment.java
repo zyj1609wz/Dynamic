@@ -1,5 +1,4 @@
 package com.dynamic.lib;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,7 +21,9 @@ public class SetFragment extends Fragment implements FragmentI {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate( getId( getContext() , "layout" , "fragment_main") , container , false ) ;
+        //通过反射获取
+        int layoutID = getId( getContext() , "layout" , "fragment_main") ;
+        View view = inflater.inflate( layoutID , container , false ) ;
         return view ;
     }
 
