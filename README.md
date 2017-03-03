@@ -117,3 +117,4 @@ public class SetFragment extends Fragment implements FragmentI {
 
 - [Android动态加载Dex机制解析](http://blog.csdn.net/wy353208214/article/details/50859422)
 - [DL动态加载框架技术文档](http://blog.csdn.net/singwhatiwanna/article/details/40283117)
+- [Android博客周刊专题之＃插件化开发＃](http://www.androidblog.cn/index.php/Index/detail/id/16#)
