@@ -119,8 +119,11 @@ public class SetFragment extends Fragment implements FragmentI {
 
 DexClassLoader(String dexPath, String optimizedDirectory, String librarySearchPath, ClassLoader parent)
 参数1：待加载的`dex`文件路径，如果是外存路径，一定要加上读外存文件的权限`（<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> ）`。
+
 参数2：解压后的`dex`存放位置，此位置一定要是可读写且仅该应用可读写（安全性考虑），所以只能放在`data/data`下。
+
 参数3：指向包含本地库`(so)`的文件夹路径，可以设为`null`.
+
 参数4：父级类加载器，一般可以通过`Context.getClassLoader`获取到，也可以通过`ClassLoader.getSystemClassLoader()`取到。
 
 
