@@ -66,6 +66,7 @@ getJar.dependsOn(build)
 
 ### 2、使用Android中的反射初始化控件
 操作方法详见：[Android 反射-换一种方式编程](http://www.cnblogs.com/zhaoyanjun/p/6484767.html)
+
 具体到本工程的代码如下：
 ```
 package com.dynamic.lib;
