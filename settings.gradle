@@ -1,1 +1,1 @@
-include ':app', ':DynamicLib'
+include ':app', ':DynamicLib', ':DynamicActivityInterface', ':DynamicActivityHost', ':DynamicActivityDemo'

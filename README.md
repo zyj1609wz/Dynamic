@@ -119,8 +119,9 @@ public class SetFragment extends Fragment implements FragmentI {
 
 `DexClassLoader`继承`BaseDexClassLoader`。继承关系如下图：
 ```
-BaseDexClassLoader
-   -- DexClassLoader 、 PathClassLoader
+ClassLoader
+   -- BaseDexClassLoader
+        -- DexClassLoader 、 PathClassLoader
 ```
 
 
@@ -136,6 +137,10 @@ DexClassLoader(String dexPath, String optimizedDirectory, String librarySearchPa
 
 - 参数4：父级类加载器，一般可以通过`Context.getClassLoader`获取到，也可以通过`ClassLoader.getSystemClassLoader()`取到。
 
+**`PathClassLoader`和`DexClassLoader`的区别**
+- `PathClassLoader`不能主动从`zip`包中释放出`dex`，因此只支持直接操作`dex`格式文件，或者已经安装的`apk`（因为已经安装的apk在cache中存在缓存的dex文件）。
+
+- `DexClassLoader`可以支持`.apk`、`.jar`和`.dex`文件，并且会在指定的`outpath`路径释放出`dex`文件。
 
 ## 延伸
 动态加载本身是插件开发里面的知识，本项目只是动态加载`DEX`文件。动态加载也是可以加载`APK`文件的，这里不做说明，感兴趣的自己可以搜索资料学习一下。
