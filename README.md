@@ -115,6 +115,15 @@ public class SetFragment extends Fragment implements FragmentI {
 
 `dex`文件是一种经过`android`打包工具优化后的`Class`文件，因此加载这样特殊的`Class`文件就需要特殊的类装载器，所以android中提供了`DexClassLoader`类。这个类加载器用来从`.jar`和`.apk`类型的文件内部加载`classes.dex`文件。通过这种方式可以用来执行非安装的程序代码，作为程序的一部分进行运行。
 
+**DexClassLoader** 继承关系
+
+`DexClassLoader`继承`BaseDexClassLoader`。继承关系如下图：
+```
+BaseDexClassLoader
+   -- DexClassLoader 、 PathClassLoader
+```
+
+
 **DexClassLoader 构造函数**
 
 DexClassLoader(String dexPath, String optimizedDirectory, String librarySearchPath, ClassLoader parent)
@@ -142,3 +151,4 @@ DexClassLoader(String dexPath, String optimizedDirectory, String librarySearchPa
 - [DL动态加载框架技术文档](http://blog.csdn.net/singwhatiwanna/article/details/40283117)
 - [Android博客周刊专题之＃插件化开发＃](http://www.androidblog.cn/index.php/Index/detail/id/16#)
 - [Android动态加载技术 简单易懂的介绍方式](https://segmentfault.com/a/1190000004062866)
+- [插件化系列详解](https://github.com/ljqloveyou123/LiujiaqiAndroid)
