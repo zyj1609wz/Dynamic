@@ -3,6 +3,11 @@
 ## 项目介绍
 
 ### app 实现动态加载`DEx`文件
+
+- `DynamicLib` 动态加载接口库和接口实现库，并且被打成`Dex`文件，如：`dynamic_dex.jar`
+
+- `app` 把`dynamic_dex.jar`放到app的`assets`目录下，实现动态加载`dex`文件。
+
 - 动态加载普通的类
 
 - 动态加载Fragment
