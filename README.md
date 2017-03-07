@@ -1,10 +1,18 @@
 # Dynamic Android 动态加载实践
 
-## 这个工程可以实现那些功能
+## 项目介绍
 
+### app 实现动态加载`DEx`文件
 - 动态加载普通的类
 
 - 动态加载Fragment
+
+### `DynamicActivityHost` 实现动态加载`APK`文件
+- `DynamicActivityInterface` 动态加载接口库
+
+- `DynamicActivityDemo` 动态加载接口实现`module`, 运行这个`module`生成`DynamicActivityDemo.apk` 文件。然后把这个`APK`文件放到`SD卡`的根目录.
+
+- `DynamicActivityHost` 动态加载手机SD卡根目录的`DynamicActivityDemo.apk`文件。
 
 ## Android 动态加载步骤
 

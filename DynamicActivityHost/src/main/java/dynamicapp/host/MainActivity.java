@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private AssetManager mAssetManager;//资源管理器
     private Resources mResources;//资源
     private Resources.Theme mTheme;//主题
-    private String apkFileName = "PluginSDKs.apk";
+    private String apkFileName = "DynamicActivityDemo.apk";
     private String dexpath = null;//apk文件地址
     private File fileRelease = null; //释放目录
     private DexClassLoader classLoader = null;
@@ -121,7 +121,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        btn_4.setOnClickListener(new View.OnClickListener() {//带资源文件的调用
+
+        //弹出Dialog对话框
+        btn_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 loadResources();

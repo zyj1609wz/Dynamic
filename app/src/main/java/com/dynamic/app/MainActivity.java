@@ -1,5 +1,6 @@
 package com.dynamic.app;
 
+import android.opengl.GLSurfaceView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
